@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('prenom');
             $table->string('sexe');
             $table->string('telephone');
+            $table->string("pieceIdentite");
             $table->string('numeroPieceIdentite');
             $table->string('photo');
             $table->string('email')->unique();

@@ -2,5 +2,5 @@
 
 
 @section("contenu")
-<livewire:counter/>
+    <h1>Liste des utilisateur</h1>
 @endsection

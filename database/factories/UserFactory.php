@@ -26,9 +26,10 @@ class UserFactory extends Factory
         return [
             'prenom' => $this->faker->firstName,
             'nom' => $this->faker->lastName,
-            'sexe' => rand("F", "M"),
+            'sexe' => array_rand(["F", "M"],1),
             'telephone' => $this->faker->phoneNumber,
-            'numeroPieceIdentite' => $this->faker->swiftBicNumber,
+            'pieceIdentite' => array_rand(["CNI", "PASSPORT", "PERMIS DE CONDUIRE"], 1),
+            'numeroPieceIdentite' => $this->faker->unique()->BankAccountNumber,
             'photo' => $this->faker->imageUrl(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
