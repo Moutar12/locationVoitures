@@ -26,7 +26,7 @@ class ArticleFactory extends Factory
         return [
             "nom"=> $this->faker->lastname,
             "numeroSerie"=> $this->faker->swiftBicNumber(),
-            "imageUrl"=> $this->faker->imageUrl(),
+            "imageUrl"=> "images/imageplaceholder.png",
             "estDisponible"=> rand(0,1),
             "type_article_id"=> rand(0,4),
         ];

@@ -17,7 +17,7 @@
             </ul>
             <a class="btn btn-primary btn-block" href="{{ route('logout') }}"
                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                document.getElementById('logout-form').submit();">
                 Se déconnecter
             </a>
 

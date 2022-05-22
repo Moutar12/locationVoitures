@@ -2,7 +2,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <li class="nav-item">
-            <a href="#" class="nav-link ">
+            <a href="{{ route("home") }}" class="nav-link {{ setMenuActive("home") }}">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
                     Accueil
@@ -37,8 +37,8 @@
         @endcan
 
         @can("Admin")
-        <li class="nav-item ">
-            <a href="#" class="nav-link ">
+        <li class="nav-item {{setMenuClass("Admin.habilitations.", "menu-open")}}">
+            <a href="#" class="nav-link {{setMenuClass("Admin.habilitations", "active")}}">
                 <i class=" nav-icon fas fa-user-shield"></i>
                 <p>
                     Habilitations
@@ -48,8 +48,8 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item ">
                     <a
-                        href="#"
-                        class="nav-link ">
+                        href="{{ route("Admin.habilitations.users.index") }}"
+                        class="nav-link {{ setMenuClass('Admin.habilitations.users.index', 'active') }}">
                         <i class=" nav-icon fas fa-users-cog"></i>
                         <p>Utilisateurs</p>
                     </a>
@@ -63,8 +63,8 @@
             </ul>
         </li>
 
-        <li class="nav-item">
-            <a href="#" class="nav-link ">
+        <li class="nav-item {{setMenuClass("Admin.gestion-article.", "menu-open")}}">
+            <a href="#" class="nav-link {{setMenuClass("Admin.gestion-article", "active")}}">
                 <i class="nav-icon fas fa-cogs"></i>
                 <p>
                     Gestion articles
@@ -73,17 +73,24 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#"
-                       class="nav-link ">
+                    <a href="{{ route("Admin.gestion-article.typesarticles") }}"
+                       class="nav-link {{ setMenuClass('Admin.gestion-article.typesarticles', 'active') }}">
                         <i class="nav-icon far fa-circle"></i>
                         <p>Type d'articles</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#"
-                       class="nav-link ">
+                    <a href="{{ route("Admin.gestion-article.articles") }}"
+                       class="nav-link {{ setMenuClass('Admin.gestion-article.articles', 'active') }}">
                         <i class="nav-icon fas fa-list-ul"></i>
                         <p>Articles</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p>Tarifications</p>
                     </a>
                 </li>
 

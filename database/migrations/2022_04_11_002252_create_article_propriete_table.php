@@ -16,6 +16,8 @@ class CreateArticleProprieteTable extends Migration
         Schema::create('article_propriete', function (Blueprint $table) {
             $table->foreignId("article_id")->constrained();
             $table->foreignId("propriete_article_id")->constrained();
+            $table->timestamps();
+
         });
 
         Schema::enableForeignKeyConstraints();

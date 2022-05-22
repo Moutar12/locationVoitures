@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\ArticleComponent;
+use App\Http\Livewire\TypeArticleComponent;
+use App\Http\Livewire\Utilisateurs;
 use App\Models\Article;
 use App\Models\TypeArticle;
 use Illuminate\Support\Facades\Auth;
@@ -19,17 +22,38 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/articles', function () {
-    return Article::with("type")->paginate(5);
-});
-
-Route::get('/type', function () {
-    return TypeArticle::with("articles")->paginate(2);
-});
-
-
-
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/abilitations/utilisateurs', [App\Http\Controllers\UserController::class, 'index'])->name('utilisateurs')->middleware("can:Admin");
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Les groupes de routes relatives aux administrateurs
+
+Route::group([
+    "middleware" => ["auth", "auth.Admin"],
+    'as' => 'Admin.'
+], function(){
+
+    Route::group([
+        "prefix" => "habilitations",
+        'as' => 'habilitations.'
+    ], function() {
+
+        Route::get("/utilisateurs", Utilisateurs::class)->name("users.index");
+    });
+        //Route::get("/rolesetpermissions", [UserController::class, "index"])->name("rolespermissions.index");
+        //
+
+
+    Route::group([
+        "prefix" => "gestion-article",
+        'as' => 'gestion-article.'
+    ], function() {
+
+        Route::get("/typesarticles", TypeArticleComponent::class)->name("typesarticles");
+        Route::get("/articles", ArticleComponent::class)->name("articles");
+    });
+
+    });
+
+

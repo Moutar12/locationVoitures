@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>GESTION DES LOCATIONS</title>
 
     <link rel="stylesheet" href="{{mix("css/app.css")}}" />
 
@@ -22,7 +22,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <span class="brand-text font-weight-bold" style="font-size: 1.3em;"><b>YBLTD</b></span>
+            <span class="brand-text text-center font-weight-bold" style="font-size: 1em;"><b>GESTION LOCATION</b></span>
         </a>
 
         <!-- Sidebar -->
@@ -82,9 +82,10 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
+@livewireScripts
+
 <script src="{{ mix('js/app.js') }}"></script>
 
-@livewireScripts
 
 </body>
 </html>
